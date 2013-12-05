@@ -40,3 +40,9 @@ Takes the room with given brothers if possible, otherwise tells you that the roo
 	compare [list of brother lastnames]
 
 Prints all the possible combinations of brothers that could take a room from the given list of brothers.   It doesn't take into account brothers that have already taken rooms, however.
+
+*Compare Room*
+
+	compare-room [roomname]
+
+Does the same thing as compare, just using the brothers in the given room. 

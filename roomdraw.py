@@ -162,6 +162,13 @@ while run:
 			occupants.append(BROTHERS[b.lower()])
 		compare(occupants)
 
+	elif name == "compare-room":
+		room = ROOMS[args[1]]
+		if len(room.occupants) == 0:
+			print("No one's in that room!")
+		compare(room.occupants)
+
+
 
 
 
