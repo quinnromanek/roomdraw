@@ -85,10 +85,10 @@ def compare(occupants):
 
 ROOMS = {}
 BROTHERS = {}
-doubles = ['2a', '2e', '2f', '2h', '2i', '3a', '3e', '3f', '3h', '3i', 'c1']
+doubles = ['2a', '2e', '2f', '2h', '2i', '3a', '3e', '3f', '3h', '3i']
 triples = ['2b', '2d', '3b', '3d']
 quads = ['2c', '3c']
-singles = ['c2', '2g', '3g']
+singles = ['c2', 'c1', '2g', '3g']
 for d in doubles:
 	ROOMS[d] = Room(2, d)
 
