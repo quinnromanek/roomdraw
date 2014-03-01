@@ -29,12 +29,15 @@ Brother** load_csv(const char* filename) {
 		return NULL;
 	}
 	char line[1024];
+	//Cut off headers:
+	fgets(line, 1024, csv_file);
 	while(fgets(line, 1024, csv_file) != NULL) {
 		file_len++;
 		//printf("Line %d: %s\n", file_len, line);
 	}
 	Brother** list = (Brother**) malloc(sizeof(Brother*)*(file_len+1));
 	rewind(csv_file);
+	fgets(line, 1024, csv_file);
 	while(fgets(line, 1024, csv_file)) {
 		char* tmp = strdup(line);
 

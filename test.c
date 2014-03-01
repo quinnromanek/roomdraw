@@ -27,8 +27,12 @@ int main(void) {
 	// CSV tests.
 	Brother** brothers;
 	brothers = load_csv("points.csv");
-	printf("loaded csv correctly\n");
-	printf("%s\n", (brothers[0])->firstname);
+	printf("Loading test: should print all brothers and points\n");
+	int i = 0;
+	while(brothers[i] != NULL) {
+		printf("%s %s | Points: %d\n", brothers[i]->firstname, brothers[i]->lastname, brothers[i]->points);
+		i++;
+	}
 	free_brother_list(brothers);
 	free(room);
 
