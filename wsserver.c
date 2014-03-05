@@ -16,8 +16,8 @@ static int callback_http(struct libwebsocket_context* this, struct libwebsocket*
 			char* uri;
 			uri = (char*) in;
 			printf("Requested uri: %s\n", uri);
-			if(strcmp(uri, "/config.json")== 0) {
-				libwebsockets_serve_http_file(this, wsi, "config.json", "text/json",
+			if(strcmp(uri, "/roomconfig.csv")== 0) {
+				libwebsockets_serve_http_file(this, wsi, "roomconfig.csv", "text/csv",
 					"Access-Control-Allow-Origin: null\n");
 			}else if(strcmp(uri, "/points.csv") == 0) {
 				libwebsockets_serve_http_file(this, wsi, "points.csv", "text/csv",

@@ -6,13 +6,13 @@ var HOST = "127.0.0.1";
 var roomData;
 var brothers;  
 // Load room capacity configuration
-d3.json("http://"+HOST+":9000/config.json", function(e, data) {
+d3.csv("http://"+HOST+":9000/roomconfig.csv", function(data) {
 	roomData = data;
 });
 // Load points list - we now know the points.
 d3.csv("http://"+HOST+":9000/points.csv", function(d) {
 	brothers = d;
-})
+});
 
 function roomClick() {
 
@@ -27,4 +27,4 @@ rooms.on("mouseover", function() {
 });
 rooms.on("mouseout", function() {
 	d3.select(this).selectAll("rect").transition().style("fill", "lightgray");
-})
+});

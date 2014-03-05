@@ -18,7 +18,7 @@ static Brother* load_brother(char* line) {
 
 	return new_brother;
 } 
-Brother** load_csv(const char* filename) {
+Brother** load_brother_csv(const char* filename) {
 	FILE* csv_file;
 	int file_len, i;
 	file_len =0;
@@ -62,4 +62,36 @@ void free_brother_list(Brother** list) {
 		i++;		
 	}
 	free(list);
+}
+Room** load_room_csv(const char* filename) {
+	FILE* csv_file;
+	int file_len, i;
+	file_len = i = 0;
+	csv_file = fopen(filename, "r");
+	if(csv_file == NULL) {
+		printf("Error: Could not open file\n");
+		return NULL;
+	}
+	char line[1024];
+	fgets(line, 1024, csv_file);
+	while(fgets(line, 1024, csv_file) != NULL) {
+		file_len++;
+	}
+	Room** list = (Room**) malloc(sizeof(Room*)*(file_len+1));
+	rewind(csv_file);
+	fgets(line, 1024, csv_file);
+	while(fgets(line, 1024, csv_file) != NULL) {
+		int init[] = {-1, -1, -1, -1};
+		char* tmp = strdup(line);
+		char* token;
+		token = strtok(tmp, ",\n");
+		int num = atoi(strtok(NULL, ",\n"));
+		list[i] = make_room(token, init, num);
+		i++;
+
+	}
+	list[++i] = NULL;
+	fclose(csv_file);
+	return list;
+
 }

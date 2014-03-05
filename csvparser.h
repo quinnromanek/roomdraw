@@ -3,13 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-typedef struct brother{
-	char* firstname;
-	char* lastname;
-	int points;
-	int index;
-} Brother;
-Brother** load_csv(const char* filename);
+#include "room.h"
+
+Brother** load_brother_csv(const char* filename);
+Room** load_room_csv(const char* filename);
 void free_brother_list(Brother** list);
 
 
